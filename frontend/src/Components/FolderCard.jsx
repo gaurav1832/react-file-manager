@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import folderImage from "../images/folder.png";
 import "../styles/FolderCard.css";
- 
+
 import { MdDelete, MdEdit, MdSave, MdCancel } from "react-icons/md"; // Import necessary icons
- 
+
 function FolderCard({ title, onDelete, folderId }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newFolderName, setNewFolderName] = useState("");
