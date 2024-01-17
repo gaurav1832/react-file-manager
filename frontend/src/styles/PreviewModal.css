@@ -1,0 +1,31 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(227, 223, 223, 0.163);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Make sure it's on top of other elements */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  width: 80vw; /* 80% of the viewport width */
+  height: fit-content; /* 80% of the viewport height */
+  overflow-y: auto; /* Enable scroll if content is larger than the modal */
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute; /* Position it at the top-right corner of the modal */
+  top: 10px;
+  right: 15px;
+}

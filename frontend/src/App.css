@@ -1,0 +1,62 @@
+@keyframes loading0 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 20%;
+  }
+}
+@keyframes loading20 {
+  0% {
+    width: 20%;
+  }
+  100% {
+    width: 40%;
+  }
+}
+@keyframes loading40 {
+  0% {
+    width: 40%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+@keyframes loading60 {
+  0% {
+    width: 60%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+@keyframes loading80 {
+  0% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Indeterminate state - when the upload is in progress but we don't have a percentage */
+.indeterminate0 {
+  animation: loading0 2s ease-in-out infinite;
+}
+.indeterminate20 {
+  animation: loading20 2s ease-in-out infinite;
+}
+.indeterminate40 {
+  animation: loading40 2s ease-in-out infinite;
+}
+.indeterminate60 {
+  animation: loading60 2s ease-in-out infinite;
+}
+.indeterminate80 {
+  animation: loading80 2s ease-in-out infinite;
+}
+
+/* Determinate state - when we have an upload percentage */
+.determinate {
+  animation: none; /* No animation here, we'll use the transition */
+}

@@ -1,0 +1,38 @@
+.delete-button {
+  display: none;
+}
+
+.folder-card:hover .delete-button {
+  display: block;
+}
+
+.folder-card {
+  width: 100%; /* Adjust the width as needed */
+  cursor: pointer;
+}
+
+/* Hide the delete button by default */
+.delete-button {
+  display: none;
+}
+
+/* Show the delete button when hovering over the FolderCard */
+.folder-card:hover .delete-button {
+  display: block;
+}
+
+.folder-card {
+  width: 100%; /* Adjust as needed */
+  cursor: pointer;
+  position: relative;
+}
+
+.folder-card .action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.folder-card:hover .action-buttons {
+  opacity: 1;
+}
