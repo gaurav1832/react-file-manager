@@ -74,7 +74,7 @@ To set up and run the application locally, follow these steps:
 
   2. Open the .env file in a text editor and add the following configuration:
       ```bash
-      PORT=5000 // (choose your post on which you want to run the server)
+      PORT=5000 // (choose your port on which you want to run the server)
       MONGO_URI=your-mongodb-connection-string
       JWT_SECRET=your-secret-key-for-jwt
       
