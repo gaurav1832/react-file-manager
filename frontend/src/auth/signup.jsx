@@ -7,6 +7,10 @@ const Signup = () => {
   const [name, setName] = useState("");
   const { isLoggedIn, setIsLoggedIn } = useUserContext();
 
+  const API_BASE_URL =
+    process.env.PROD_API_BASE_URL ||
+    "https://react-file-manager-y92g.onrender.com";
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userEmail");
@@ -17,7 +21,7 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/user/register", {
+      const response = await fetch(`${API_BASE_URL}/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +32,7 @@ const Signup = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        console.log("token-", data.token);
+        // console.log("token-", data.token);
         handleLogout();
         window.location.href = "/login";
       } else {

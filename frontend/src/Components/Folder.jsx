@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PreviewModal from "./PreviewModal";
-
 import { useParams, useNavigate } from "react-router-dom";
 import { FiImage, FiFile } from "react-icons/fi";
 import { FaAngleLeft, FaRegFilePdf } from "react-icons/fa";
@@ -8,6 +7,10 @@ import { MdDelete } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import { FaFileUpload } from "react-icons/fa";
 import { MdOutlinePreview } from "react-icons/md";
+
+const API_BASE_URL =
+  process.env.PROD_API_BASE_URL ||
+  "https://react-file-manager-y92g.onrender.com";
 
 function Folder() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +50,7 @@ function Folder() {
         setLoading(true);
 
         const response = await fetch(
-          `http://localhost:5000/file/folder/${folderId}/files`,
+          `${API_BASE_URL}/file/folder/${folderId}/files`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +90,7 @@ function Folder() {
 
   const handleDeleteFile = async (fileId) => {
     try {
-      const response = await fetch(`http://localhost:5000/file/delete/`, {
+      const response = await fetch(`${API_BASE_URL}/file/delete/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -127,7 +130,7 @@ function Folder() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/file/rename/${renameFileId}`,
+        `${API_BASE_URL}/file/rename/${renameFileId}`,
         {
           method: "PUT",
           headers: {
@@ -169,7 +172,7 @@ function Folder() {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/file/folders", {
+        const response = await fetch(`${API_BASE_URL}/file/folders`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -191,7 +194,7 @@ function Folder() {
   useEffect(() => {
     const uploadfilefunc = async () => {
       try {
-        const response = await fetch("http://localhost:5000/file/upload", {
+        const response = await fetch(`${API_BASE_URL}/file/upload`, {
           // Replace with your actual API endpoint
           method: "POST",
           headers: {
@@ -261,7 +264,7 @@ function Folder() {
 
   const moveFile = async (fileId, targetFolderId) => {
     try {
-      const response = await fetch(`http://localhost:5000/file/move/`, {
+      const response = await fetch(`${API_BASE_URL}/file/move/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -338,7 +341,6 @@ function Folder() {
                         />
                       ) : (
                         <p className="font-md">{file.filename}</p>
-                       
                       )}
                       <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-2">
                         {renameFileId === file._id ? (
@@ -398,7 +400,7 @@ function Folder() {
                           <PreviewModal
                             file={previewFile}
                             onClose={() => {
-                              setPreviewFile(null); 
+                              setPreviewFile(null);
                               // Clear the preview file to close the modal
                               setIsPreviewModalOpen(false); // Close the modal
                             }}

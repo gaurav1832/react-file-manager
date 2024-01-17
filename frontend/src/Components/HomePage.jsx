@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import folderImage from "../images/folder.png";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-
 import landingImage from "../images/landing.png";
+
+const API_BASE_URL =
+  process.env.PROD_API_BASE_URL ||
+  "https://react-file-manager-y92g.onrender.com";
+
 const userEmail = localStorage.getItem("userEmail");
 
 function FileManager() {
@@ -25,7 +29,7 @@ function FileManager() {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/file/folders", {
+        const response = await fetch(`${API_BASE_URL}/file/folders`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -36,7 +40,6 @@ function FileManager() {
         }
 
         const fetchedFolders = await response.json();
-        console.log(fetchedFolders);
         setFolders(fetchedFolders);
       } catch (error) {
         console.error("Error:", error);
@@ -52,7 +55,7 @@ function FileManager() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/file/folder", {
+      const response = await fetch(`${API_BASE_URL}/file/folder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,9 +72,9 @@ function FileManager() {
       }
 
       const folderData = await response.json();
-      console.log("folderData--->", folderData);
+      // console.log("folderData--->", folderData);
       setFolders([...folders, folderData]);
-      console.log("folders--->", folders);
+      // console.log("folders--->", folders);
       setNewFolderName("");
       setModalOpen(false);
       window.location.reload();
@@ -89,7 +92,7 @@ function FileManager() {
   const handleDeleteFolder = async (folderId, e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/file/deletefolder`, {
+      const response = await fetch(`${API_BASE_URL}/file/deletefolder`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

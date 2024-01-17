@@ -4,6 +4,10 @@ import "../styles/FolderCard.css";
 
 import { MdDelete, MdEdit, MdSave, MdCancel } from "react-icons/md"; // Import necessary icons
 
+const API_BASE_URL =
+  process.env.PROD_API_BASE_URL ||
+  "https://react-file-manager-y92g.onrender.com";
+
 function FolderCard({ title, onDelete, folderId }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newFolderName, setNewFolderName] = useState("");
@@ -18,20 +22,17 @@ function FolderCard({ title, onDelete, folderId }) {
     setIsEditing(false);
     const renameRequest = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/file/renamefolder`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-            body: JSON.stringify({
-              newName: newFolderName,
-              folderId: folderId,
-            }),
-          }
-        );
+        const response = await fetch(`${API_BASE_URL}/file/renamefolder`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            newName: newFolderName,
+            folderId: folderId,
+          }),
+        });
 
         if (!response.ok) {
           throw new Error("Failed to delete folder");

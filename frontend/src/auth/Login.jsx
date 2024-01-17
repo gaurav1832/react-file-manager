@@ -1,4 +1,7 @@
 import React, { useContext, useState } from "react";
+const API_BASE_URL =
+  process.env.PROD_API_BASE_URL ||
+  "https://react-file-manager-y92g.onrender.com";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +12,7 @@ const Login = () => {
 
     // Retrieve values using state instead of directly from the event target
     try {
-      const response = await fetch("http://localhost:5000/user/login", {
+      const response = await fetch(`${API_BASE_URL}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -22,7 +25,7 @@ const Login = () => {
       }
 
       const data = await response.json();
-      console.log("data-", data);
+      // console.log("data-", data);
       localStorage.setItem("token", data.token);
       localStorage.setItem("userEmail", email);
       window.location.href = "/";
