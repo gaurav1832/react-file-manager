@@ -36,7 +36,6 @@ function FolderCard({ title, onDelete, folderId }) {
         if (!response.ok) {
           throw new Error("Failed to delete folder");
         }
-        console.log("Folder renamed successfully");
         // setTitles(newFolderName);
         setNewFolderName("");
         window.location.reload();

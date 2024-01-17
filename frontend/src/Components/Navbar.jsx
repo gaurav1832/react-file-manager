@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggedIn } = useUserContext();
-  console.log("isLoggedIn-", isLoggedIn);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

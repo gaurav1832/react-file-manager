@@ -7,7 +7,6 @@ const Signup = () => {
   const [name, setName] = useState("");
   const { isLoggedIn, setIsLoggedIn } = useUserContext();
 
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userEmail");
@@ -31,7 +30,7 @@ const Signup = () => {
         localStorage.setItem("token", data.token);
         console.log("token-", data.token);
         handleLogout();
-        window.location.href = "/";  
+        window.location.href = "/login";
       } else {
         throw new Error("Something went wrong with the registration!");
       }
