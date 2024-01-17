@@ -114,7 +114,7 @@ The frontend development server will start at http://localhost:3000. You can acc
 
 
 ## Demo
-You can see a live demo of the File Manager <a href="https://drive.google.com/file/d/1FYWHWJ94hPDV1N7yG_spinCgG3CtK1t2/view?usp=sharing" targer="_blank"><a/>
+You can see a live demo of the File Manager <a href="https://drive.google.com/file/d/1FYWHWJ94hPDV1N7yG_spinCgG3CtK1t2/view?usp=sharing" targer="_blank">here<a/>
 
 ## Thank you
   
