@@ -99,14 +99,16 @@ The frontend development server will start at http://localhost:3000. You can acc
 
 The backend provides the following API endpoints:
 
+- GET  /file/folders: Get a list of folders.
+- GET  /file/folder/:folderId/files: Get a list of files in a folder.
 - POST /user/register: Create a new user account.
 - POST /user/login: Sign in with an existing account.
 - POST /file/upload: Upload a file.
-- GET  /file/folders: Get a list of folders.
-- GET  /file/folder/:folderId/files: Get a list of files in a folder.
 - POST /file/folder: Create a new folder.
 - POST /file/deletefolder: Delete a folder
 - POST /file/delete: Delete a file.
+- POST /file/renamefolder: Rename a folder.
+- POST /file/move: Move a file from one folder to another.
 - PUT  /file/rename/:fileId: Rename a file.
 
 
