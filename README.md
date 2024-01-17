@@ -12,8 +12,7 @@ A simple file manager application built using React, Node.js, Express, and Mongo
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Demo](#demo)
-- [Contributing](#contributing)
-- [License](#license)
+ 
 
 ## Description
 
