@@ -338,7 +338,7 @@ function Folder() {
                         />
                       ) : (
                         <p className="font-md">{file.filename}</p>
-                        // The image preview here is commented out
+                       
                       )}
                       <div className="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-2">
                         {renameFileId === file._id ? (
@@ -398,7 +398,8 @@ function Folder() {
                           <PreviewModal
                             file={previewFile}
                             onClose={() => {
-                              setPreviewFile(null); // Clear the preview file to close the modal
+                              setPreviewFile(null); 
+                              // Clear the preview file to close the modal
                               setIsPreviewModalOpen(false); // Close the modal
                             }}
                           />

@@ -87,7 +87,6 @@ function FileManager() {
   // Delete Folder
 
   const handleDeleteFolder = async (folderId, e) => {
-    e.stopPropagation();
     e.preventDefault();
     try {
       const response = await fetch(`http://localhost:5000/file/deletefolder`, {
@@ -136,7 +135,7 @@ function FileManager() {
                   >
                     <FolderCard
                       title={folder.name}
-                      onDelete={handleDeleteFolder}
+                      onDelete={(e) => handleDeleteFolder(folder._id, e)}
                       folderId={folder._id}
                     />
                   </div>

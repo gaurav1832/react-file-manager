@@ -1,9 +1,19 @@
 import React, { useState } from "react";
+import { useUserContext } from "../Context/UserContext";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const { isLoggedIn, setIsLoggedIn } = useUserContext();
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userEmail");
+    setIsLoggedIn(false);
+    window.location.href = "/login";
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,12 +28,10 @@ const Signup = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("data-", data);
-        // Here you can redirect or perform further actions like saving the token
-        // For example, saving to localStorage and redirecting to the home page:
         localStorage.setItem("token", data.token);
         console.log("token-", data.token);
-        window.location.href = "/"; // Replace with your home page route
+        handleLogout();
+        window.location.href = "/";  
       } else {
         throw new Error("Something went wrong with the registration!");
       }
