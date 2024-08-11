@@ -48,18 +48,19 @@ To set up and run the application locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/file-manager-app.git
+   git clone https://github.com/gaurav1832/react-file-manager.git
 
 2. Navigate to the project directory:
-     ```
+     ```bash
      cd file-manager-app
      
 3. Install the backend dependencies:
-    ```
+    ```bash
     cd ../frontend
     npm install
+   
 4. Install the frontend dependencies:
-   ```
+   ```bash
    cd ../frontend
    npm install
 
@@ -67,15 +68,16 @@ To set up and run the application locally, follow these steps:
   Before running the application, you need to configure the backend to connect to your MongoDB database. Follow these steps:
 
   1. Create a .env file in the backend directory:
-     ```
+     ```bash
      cd backend
      touch .env
 
   2. Open the .env file in a text editor and add the following configuration:
-      ```
+      ```bash
+      PORT=5000 // (choose your port on which you want to run the server)
       MONGO_URI=your-mongodb-connection-string
       JWT_SECRET=your-secret-key-for-jwt
-      ```
+      
    Replace your-mongodb-connection-string with the connection string to your MongoDB database and your-secret-key-for-jwt with a secret key for JWT (JSON Web Tokens).
 
 
@@ -84,12 +86,12 @@ To set up and run the application locally, follow these steps:
 To run the application, follow these steps:
 
 1. Start the backend server:
-    ```
+    ```bash
     cd backend
     npm start
 
 2. Start the frontend development server:
-    ```
+    ```bash
     cd frontend
     npm start
  
@@ -98,17 +100,19 @@ The frontend development server will start at http://localhost:3000. You can acc
 ## API Endpoints
 
 The backend provides the following API endpoints:
-
+ ```bash
+- GET  /file/folders: Get a list of folders.
+- GET  /file/folder/:folderId/files: Get a list of files in a folder.
 - POST /user/register: Create a new user account.
 - POST /user/login: Sign in with an existing account.
 - POST /file/upload: Upload a file.
-- GET  /file/folders: Get a list of folders.
-- GET  /file/folder/:folderId/files: Get a list of files in a folder.
 - POST /file/folder: Create a new folder.
 - POST /file/deletefolder: Delete a folder
 - POST /file/delete: Delete a file.
+- POST /file/renamefolder: Rename a folder.
+- POST /file/move: Move a file from one folder to another.
 - PUT  /file/rename/:fileId: Rename a file.
-
+ ```
 
 The frontend development server will start at http://localhost:3000. You can access the application in your web browser at this address.
 
