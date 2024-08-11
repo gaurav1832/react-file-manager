@@ -5,26 +5,12 @@
 /* loader styles */
 
 body {
-  background: linear-gradient(
-    360deg,
-    rgb(160, 213, 247) 0%,
-    rgb(238, 240, 241) 30%,
-    rgb(214, 218, 222) 100%
-  );
   font-family: "Arial";
   height: 120vh;
 }
 
 #greeting {
   color: rgb(35, 132, 192);
-}
-#add-folder {
-  color: rgb(35, 132, 192);
-  font-weight: 900;
-}
-#add-folder:hover {
-  background-color: rgb(35, 132, 192);
-  color: white;
 }
 
 .loader {
@@ -94,4 +80,29 @@ body {
   100% {
     transform: rotate(25deg);
   }
+}
+
+.login {
+  background: rgb(59, 93, 114);
+}
+.login button {
+  background: #2384c0;
+}
+.login button:hover {
+  background: rgb(59, 93, 114);
+}
+.signup {
+  background: rgb(59, 93, 114);
+}
+.signup button {
+  background: #2384c0;
+}
+.signup button:hover {
+  background: rgb(115, 150, 171);
+}
+.foldercontainer {
+  background-color: rgb(190, 210, 227);
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 10px;
 }

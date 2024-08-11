@@ -35,11 +35,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <section className="w-full max-w-md p-8 bg-white rounded shadow-md">
-        <hgroup className="mb-8">
+    <div className="login flex items-center justify-center h-screen">
+      <section className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
+        <hgroup className="mb-8 bg-gray-100 p-4 rounded-lg">
           <h2 className="text-2xl font-bold text-gray-800">Login</h2>
-          <h3 className="text-lg text-gray-600">Access Your Files</h3>
+          <h3 className="text-md text-gray-600">To Access Your Files</h3>
         </hgroup>
         <form action="#" method="post" className="space-y-6">
           <div>
@@ -55,8 +55,8 @@ const Login = () => {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 leading-tight focus:outline-none focus:ring-gray-500 focus:border-gray-600"
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 leading-tight focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <div>
@@ -73,13 +73,13 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 leading-tight focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 leading-tight focus:outline-none focus:ring-gray-500 focus:border-gray-600"
             />
           </div>
           <button
             onClick={handleLogin}
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="w-full font-semibold flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-md text-white"
           >
             Login
           </button>

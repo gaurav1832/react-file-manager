@@ -64,7 +64,7 @@ function FolderCard({ title, onDelete, folderId }) {
   };
 
   return (
-    <div className="folder-card relative flex flex-col items-center p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
+    <div className="folder-card flex flex-col items-center rounded-lg bg-gray-100 border-2 border-gray-300 p-4">
       {isEditing ? (
         <div
           className="flex flex-col items-center"
@@ -80,10 +80,13 @@ function FolderCard({ title, onDelete, folderId }) {
             className="border rounded-md py-1 px-2 text-grey-darkest mb-2"
           />
           <div className="flex space-x-2">
-            <button onClick={handleRename} className="text-green-500">
+            <button onClick={handleRename} className="text-green-500 text-lg">
               <MdSave />
             </button>
-            <button onClick={handleCancelRename} className="text-red-500">
+            <button
+              onClick={handleCancelRename}
+              className="text-red-500 text-lg"
+            >
               <MdCancel />
             </button>
           </div>
@@ -92,19 +95,21 @@ function FolderCard({ title, onDelete, folderId }) {
         <div className="action-buttons absolute top-1 right-1 opacity-0">
           <button
             onClick={handleRenameClick}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded-full cursor-pointer"
+            className="text-sm hover:text-gray-400 text-gray-500 cursor-pointer"
           >
-            <MdEdit />
+            {/* <MdEdit /> */}
+            Rename
           </button>
           <button
             onClick={handleDeleteClick}
-            className="top-1 right-1 text-gray-500 bg-gray-200 hover:bg-gray-300 font-bold p-2 rounded-full cursor-pointer"
+            className="text-sm top-1 right-1 text-red-500  hover:text-red-400 cursor-pointer"
           >
-            <MdDelete />
+            {/* <MdDelete /> */}
+            Delete
           </button>
         </div>
       )}
-      <img src={folderImage} alt={title} className="w-16 h-16" />
+      <img src={folderImage} alt={title} className="w-24 h-24" />
       <div className="mt-2">
         <h4 className="font-semibold text-md text-center">{titles}</h4>
       </div>

@@ -44,11 +44,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <section className="w-full max-w-md p-8 bg-white rounded shadow-md">
-        <hgroup className="mb-8">
+    <div className="signup flex items-center justify-center min-h-screen bg-gray-100">
+      <section className="w-full max-w-md p-8 bg-white rounded-lg shadow-2xl">
+        <hgroup className="mb-8 bg-gray-100 p-4 rounded-lg">
           <h2 className="text-2xl font-bold text-gray-800">Signup</h2>
-          <h3 className="text-lg text-gray-600">Creat your Account</h3>
+          <h3 className="text-md text-gray-600">Creat your Account</h3>
         </hgroup>
 
         <div>

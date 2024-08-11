@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import folderImage from "../images/folder.png";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import landingImage from "../images/landing.png";
+import Landing from "./Landing";
 
 const API_BASE_URL =
   process.env.PROD_API_BASE_URL ||
@@ -119,21 +119,31 @@ function FileManager() {
       <main className="container mx-auto p-4">
         {userEmail ? (
           <section>
-            <div className="mt-20">
-              <h1 id="greeting" className="text-3xl mt-10 font-bold">
+            <div>
+              <h1 id="greeting" className="text-3xl font-bold">
                 {userEmail && <span>Welcome, {userEmail}</span>}
               </h1>
-              <h3 className="text-2xl mb-2 mt-10 text-gray-900 font-semibold">
-                Your Folders
-              </h3>
-              <p className="text-lg text-gray-800 mb-2">
-                Select a folder to view files.
-              </p>
-              <div className="flex flex-wrap gap-4 p-2">
-                {folders.map((folder) => (
+              <button
+                id="add-folder"
+                onClick={() => setModalOpen(true)}
+                class="flex outline outline-offset-2 outline-1 py-2 px-4 mt-10 rounded-lg hover:text-gray-500"
+              >
+                <span className="text-2xl mr-2">
+                  <MdOutlineCreateNewFolder />
+                </span>
+                Add Folder
+              </button>
+            </div>
+            <h3 className="text-2xl mb-2 mt-10 text-gray-900 font-semibold">
+              Your Folders
+            </h3>
+
+            <div className="flex flex-wrap gap-4">
+              {folders.length > 0 ? (
+                folders.map((folder) => (
                   <div
                     key={folder._id}
-                    className="w-full justify-center items-center sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 flex-shrink-0 bg-transparent rounded-lg py-2 px-4 cursor-pointer"
+                    className="grid justify-center items-center rounded-lg cursor-pointer"
                     onClick={() => handleFolderOpen(folder._id)}
                   >
                     <FolderCard
@@ -142,34 +152,28 @@ function FileManager() {
                       folderId={folder._id}
                     />
                   </div>
-                ))}
-              </div>
-
-              <button
-                id="add-folder"
-                onClick={() => setModalOpen(true)}
-                class="flex outline outline-offset-2 outline-1 py-2 px-4 mt-10 rounded text-green-500 hover:bg-green-500 hover:text-white transition-colors"
-              >
-                <span className="text-2xl mr-2">
-                  <MdOutlineCreateNewFolder />
-                </span>
-                Add Folder
-              </button>
+                ))
+              ) : (
+                <p className="text-gray-600 text-sm">
+                  No folders to show. Try adding one!
+                </p>
+              )}
             </div>
           </section>
         ) : (
-          <div className="flex flex-col justify-center text-center items-center">
-            <h1 className="text-3xl mt-28 font-bold">
-              {" "}
-              Login to access your folders
-              <img src={landingImage} alt="" width={"80%"} />
-            </h1>
-          </div>
+          // <div className="flex flex-col justify-center text-center items-center">
+          //   <h1 className="text-3xl mt-28 font-bold">
+          //     {" "}
+          //     Login to access your folders
+          //     <img src={landingImage} alt="" width={"80%"} />
+          //   </h1>
+          // </div>
+          <Landing />
         )}
       </main>
       {isModalOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+          <div className="relative top-48 mx-auto p-5 border w-96 shadow-lg rounded-md bg-gray-300">
             <div className="mt-3 text-center">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 Create New Folder
@@ -177,7 +181,7 @@ function FileManager() {
               <div className="mt-2 px-7 py-3">
                 <input
                   type="text"
-                  className="border rounded-md py-2 px-3 text-grey-darkest w-full"
+                  className="border rounded-md py-2 px-3 text-grey-darkest outline-none w-full"
                   placeholder="Folder Name"
                   value={newFolderName}
                   onChange={(e) => setNewFolderName(e.target.value)}
@@ -187,13 +191,13 @@ function FileManager() {
               <div className="flex justify-center gap-4 mt-4">
                 <button
                   onClick={handleCreateFolder}
-                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                  className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
                 >
                   Create
                 </button>
                 <button
                   onClick={() => setModalOpen(false)}
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  className=" text-gray-700 font-bold py-2 px-4 rounded"
                 >
                   Cancel
                 </button>
