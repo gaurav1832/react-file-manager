@@ -17,7 +17,6 @@ const {
 } = require("../controllers/fileController");
 
 // Upload route for files
-
 router.post("/upload", authMiddleware, fileProcessingMiddleware, uploadFile);
 
 // GET route for listing folders
